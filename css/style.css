@@ -725,8 +725,9 @@ body {
 }
 
 .ps-btn--primary:hover {
-  background-color: white !important;
-  color: var(--green-color) !important;
+  border: 1px solid var(--blue-color) !important;
+  background-color: var(--blue-color) !important;
+  color: white !important;
 }
 
 .ps-btn--disabled {
@@ -10913,7 +10914,7 @@ textarea.form-control {
 
 .ps-page--notfound .ps-page__content h5 {
   font-size: 24px;
-  color: var(--green-color);
+  color: var(--blue-color);
   margin-bottom: 20px;
 }
 
