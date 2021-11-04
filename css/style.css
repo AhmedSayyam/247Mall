@@ -2065,7 +2065,7 @@ textarea.form-control {
 .ps-section--block-grid .ps-section__title {
   font-size: 26px;
   line-height: 30px;
-  color: var(--green-color);
+  color: var(--blue-color);
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -2073,7 +2073,7 @@ textarea.form-control {
 .ps-section--block-grid .ps-section__subtitle {
   font-size: 22px;
   line-height: 26px;
-  color: var(--green-color);
+  color: var(--blue-color);
   margin-bottom: 20px;
 }
 
@@ -5073,8 +5073,9 @@ textarea.form-control {
 }
 
 .ps-banner .ps-banner__shop.bg-primary:hover {
-  background-color: white !important;
-  color: var(--green-color);
+  background-color: var(--green-color) !important;
+  border-color: var(--green-color);
+  color: #ffffff;
 }
 
 .ps-banner .ps-banner__shop.bg-success:hover {
@@ -5171,9 +5172,9 @@ textarea.form-control {
 }
 
 .ps-banner .bg-primary {
-  background-color: var(--green-color) !important;
+  background-color: var(--blue-color) !important;
   color: white;
-  border-color: var(--green-color);
+  border-color: var(--blue-color);
 }
 
 .ps-banner .bg-success {
@@ -11689,8 +11690,9 @@ textarea.form-control {
 }
 
 .ps-about .ps-about__banner .ps-banner__shop:hover {
-  background-color: white;
-  color: var(--green-color);
+  background-color: var(--blue-color);
+  border: 1px solid var(--blue-color);
+  color: #ffffff;
 }
 
 .ps-about .ps-banner--round .ps-banner__btn img {
