@@ -3153,7 +3153,7 @@ textarea.form-control {
 
 .ps-widget--category a {
   font-size: 100%;
-  color: var(--green-color);
+  color: var(--blue-color);
   line-height: 26px;
   font-weight: 500;
 }
@@ -10785,7 +10785,7 @@ textarea.form-control {
 }
 
 .ps-blog .ps-blog__title {
-  color: var(--green-color);
+  color: var(--blue-color);
   font-size: 34px;
   line-height: 40px;
   margin-bottom: 22px;
