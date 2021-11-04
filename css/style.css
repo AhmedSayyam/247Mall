@@ -719,14 +719,14 @@ body {
 }
 
 .ps-btn--primary {
-  border: 1px solid var(--green-color) !important;
-  background-color: var(--green-color) !important;
+  border: 1px solid var(--blue-color) !important;
+  background-color: var(--blue-color) !important;
   color: white !important;
 }
 
 .ps-btn--primary:hover {
-  border: 1px solid var(--blue-color) !important;
-  background-color: var(--blue-color) !important;
+  border: 1px solid var(--green-color) !important;
+  background-color: var(--green-color) !important;
   color: white !important;
 }
 
@@ -4201,6 +4201,7 @@ textarea.form-control {
   margin-right: 5px;
   margin-top: -5px;
   font-weight: bold;
+  color: var(--blue-color);
 }
 
 .ps-product--detail .ps-table__name {
@@ -8688,15 +8689,19 @@ textarea.form-control {
 
 .ps-section--category-horizontal .ps-category__all a {
   display: inline-block;
-  color: var(--green-color);
-  border: 1px solid #f0f2f5;
+  color: #ffffff;
+  border: 1px solid var(--green-color);
   border-radius: 40px;
   padding: 3px 10px;
   min-width: 80px;
-  background-color: white;
+  background-color: var(--green-color);
   font-size: 14px;
 }
-
+.ps-section--category-horizontal .ps-category__all a:hover{
+  background-color: var(--blue-color);
+  color: #ffffff;
+  border: 1px solid var(--blue-color);
+}
 .ps-section--category-horizontal .ps-category__content {
   display: flex;
   justify-content: center;
@@ -11319,11 +11324,11 @@ textarea.form-control {
   transform: translate(0, -80%);
   left: 100%;
   font-weight: 600;
-  color: var(--green-color);
+  color: #ffffff;
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background-color: #FFC800;
+  background-color: var(--green-color);
   display: inline-flex;
   justify-content: center;
   align-items: center;
