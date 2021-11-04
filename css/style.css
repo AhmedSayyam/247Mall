@@ -1815,7 +1815,7 @@ textarea.form-control {
   font-size: 34px;
   line-height: 40px;
   margin-bottom: 10px;
-  color: var(--green-color);
+  color: var(--blue-color);
 }
 
 .ps-post .ps-post__content {
@@ -1863,7 +1863,7 @@ textarea.form-control {
 .ps-post .ps-blog__text-large {
   margin-bottom: 40px;
   font-size: 22px;
-  color: var(--green-color);
+  color: var(--blue-color);
 }
 
 .ps-post .ps-blog__text {
@@ -8022,7 +8022,7 @@ textarea.form-control {
 }
 
 .ps-form--review .ps-form__desc {
-  color: var(--green-color);
+  color: var(--blue-color);
   font-size: 16px;
   margin-bottom: 35px;
 }
@@ -10257,7 +10257,7 @@ textarea.form-control {
 .ps-review--product .ps-review__desc p {
   font-size: 16px;
   margin-bottom: 0;
-  color: var(--green-color);
+  color: var(--blue-color);
 }
 
 .ps-review--product .ps-review__reply {
