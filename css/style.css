@@ -3201,7 +3201,7 @@ textarea.form-control {
   vertical-align: top;
   width: 56px;
   height: 56px;
-  background-color: var(--blue-color) !important;
+  background-color: var(--green-color) !important;
   transition: all .4s ease;
   border-radius: 50%;
   transform: translateY(-50%);
@@ -3217,7 +3217,7 @@ textarea.form-control {
 }
 
 .owl-carousel .owl-nav > *:hover {
-  background-color: var(--green-color) !important;
+  background-color: var(--blue-color) !important;
 }
 
 .owl-carousel .owl-nav .owl-prev {
