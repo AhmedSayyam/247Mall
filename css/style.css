@@ -14045,6 +14045,50 @@ textarea.form-control {
   display: none !important;
 }
 
+/* developers page styling starts */
+.dev-heading{
+  margin: 0;
+  color: var(--green-color);
+  text-align: center;
+  padding: 10px 0px;
+}
+.developer-box{
+  margin-top: 30px;
+}
+.developer-box .card{
+	height: 300px;border: none;border-radius: 3px;margin: 0px 10px;
+    background-size: cover;background-position: top;position: relative;
+}
+.developer-box .card .card-data{
+	position: absolute;bottom: 20px;left: 25px;
+}
+.developer-box .card .card-data h4{
+	color: #fff;margin: 0;text-transform: capitalize;
+}
+.developer-box .card .card-data p{
+	color: #fff;margin: 0;padding: 10px 0px;text-transform: capitalize;
+}
+.developer-box .card .card-data .links{
+	display: flex;justify-content: flex-start;
+}
+.developer-box .card .card-data .links span{
+	width: 35px;height: 35px;border-radius: 50%;background-color: transparent;
+	position: relative;margin-right: 10px;border: 1px solid #fff;
+}
+.developer-box .card .card-data .links span a{
+	position: absolute;left: 6px;top: 4px;padding: 0px 4px;
+	border-radius: 50%;text-align: center;text-decoration: none;
+
+}
+.developer-box .card .card-data .links span a i{
+	color: #fff;font-size: 16px;
+}
+.developer-box .card .card-data .links span:hover{
+	background-color: var(--green-color);cursor: pointer;color: #ffffff;
+}
+
+/* developers page styling ends */
+
 @media (min-width: 768px) {
   .ps-header {
     display: block;
