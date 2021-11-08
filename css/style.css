@@ -207,25 +207,25 @@ figure {
 }
 
 .tooltip-inner {
-  background-color: #f0f2f5 !important;
-  color: var(--green-color);
+  background-color: var(--green-color) !important;
+  color: #ffffff;
   font-size: 12px;
 }
 
 .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
-  border-top-color: #f0f2f5 !important;
+  border-top-color: var(--green-color) !important;
 }
 
 .bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
-  border-right-color: #f0f2f5 !important;
+  border-right-color: var(--green-color) !important;
 }
 
 .bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
-  border-bottom-color: #f0f2f5 !important;
+  border-bottom-color: var(--green-color) !important;
 }
 
 .bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
-  border-left-color: #f0f2f5 !important;
+  border-left-color: var(--green-color) !important;
 }
 
 .desktop-only {
