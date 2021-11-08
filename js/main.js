@@ -216,7 +216,13 @@
             $(".ps-login--modal").stop(true, true).addClass("active");
         }, function() {
             $(".ps-login--modal").stop(true, true).removeClass("active");
-        });  
+        }); 
+        
+        $('#register-modal, .ps-register--modal').hover(function(e) {
+            $(".ps-register--modal").stop(true, true).addClass("active");
+        }, function() {
+            $(".ps-register--modal").stop(true, true).removeClass("active");
+        }); 
     }
 
     function getTimeRemaining(endtime) {
