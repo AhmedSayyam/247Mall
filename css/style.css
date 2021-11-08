@@ -884,12 +884,11 @@ body {
 
 .form-control {
   outline: none;
-  height: 50px;
   font-size: 14px;
   padding: 0 20px;
   border: none;
-  height: 50px;
-  border-radius: 0;
+  height: 45px;
+  border-radius: 3px;
   border: 1px solid #ddd;
   transition: all .4s ease;
   box-shadow: 0 0 0 transparent;
@@ -3679,6 +3678,15 @@ textarea.form-control {
   color: var(--green-color);
 }
 
+.special-btn{
+  font-size: 15px;
+  background-color: var(--blue-color);
+  color: #ffffff;
+}
+.special-btn:hover{
+  background-color: var(--green-color);
+  color: #ffffff;
+}
 @media (min-width: 1280px) {
   .ps-product--standard .ps-product__group-mobile {
     display: none;
@@ -12574,6 +12582,41 @@ textarea.form-control {
   margin: 5px 9px;
   display: inline-block;
 }
+.social-list{
+  list-style: none;padding: 0;
+}
+.social-list li{
+  display: inline-block;
+  margin-right: 5px;
+}
+.spc{
+  color: #ffffff !important;
+  /* background-color: black; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  width: 35px;
+  height: 35px;
+  font-size: 16px !important;
+}
+.spc.gmail:hover{
+  background-color: orange !important;
+  border: 1px solid orange;
+}
+.spc.whatsapp:hover{
+  background-color:  #00A901 !important;
+  border: 1px solid  #00A901;
+}
+.spc.linkedin:hover{
+  background-color: #176DBA !important;
+  border: 1px solid  #176DBA;
+}
+.spc.fiverr:hover{
+  background-color: #1dbf73 !important;
+  border: 1px solid #1dbf73;
+}
 
 .ps-social__link {
   color: #5b6c8f;
@@ -12609,6 +12652,29 @@ textarea.form-control {
   border-top: 6px solid var(--green-color);
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
+}
+
+.ps-social__link.gmail .ps-tooltip {
+  background-color: orange;
+}
+
+.ps-social__link.gmail .ps-tooltip::before {
+  border-top-color: orange;
+}
+
+.ps-social__link.whatsapp .ps-tooltip {
+  background-color:  #00A901;
+}
+
+.ps-social__link.whatsapp .ps-tooltip::before {
+  border-top-color:  #00A901;
+}
+.ps-social__link.fiverr .ps-tooltip {
+  background-color: #1dbf73;
+}
+
+.ps-social__link.fiverr .ps-tooltip::before {
+  border-top-color: #1dbf73;
 }
 
 .ps-social__link.facebook .ps-tooltip {
@@ -13840,12 +13906,21 @@ textarea.form-control {
   right: 0;
   margin-top: -13px;
 }
+/* register btn style */
+.registerModalForm .formLabel{
+  color: var(--blue-color);
+}
+
 
 .ps-header .ps-language-currency .ps-dropdown-value {
+  box-sizing: border-box;
   font-size: 14px;
-  color: #5b6c8f;
+  color: #ffffff;
   margin-right: 20px;
-  padding: 12px 0;
+  padding: 8px 20px;
+  border-radius: 3px;
+  background-color: var(--blue-color);
+  border: 1px solid var(--blue-color);
 }
 
 .ps-header .ps-language-currency .ps-dropdown-value:last-child {
@@ -13853,15 +13928,16 @@ textarea.form-control {
 }
 
 .ps-header .ps-language-currency .ps-dropdown-value:hover {
-  color: var(--blue-color);
+  background-color: var(--green-color);
+  border: 1px solid var(--green-color);
 }
 
-.ps-header .ps-language-currency .ps-dropdown-value::after {
+/* .ps-header .ps-language-currency .ps-dropdown-value::after {
   content: "\f078";
   font: normal normal normal 14px/1 FontAwesome;
   font-size: 9px;
   margin-left: 10px;
-}
+} */
 
 .ps-header .ps-header__icons {
   display: inline-block;
@@ -15872,7 +15948,8 @@ textarea.form-control {
 }
 
 .ps-footer--bottom {
-  margin-top: 10px;
+  margin-top: 0px;
+  text-align: center;
   padding: 20px 0;
   border-top: 1px solid #f0f2f5;
 }
@@ -15880,6 +15957,7 @@ textarea.form-control {
 .ps-footer--bottom p {
   height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-bottom: 20px;
   color: var(--green-color);
