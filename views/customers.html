@@ -1,0 +1,246 @@
+<style>
+    .req{
+        color: red;
+        font-size: 14px;
+    }
+    .card{
+        border: none;
+        border-top: 3px solid #32a852 ;
+    }
+    h4{
+        color: #32a852;
+    }
+</style>
+<section class="content ">
+    <div class="container-fluid py-4" id="createCustomerSection">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4 class="m-0">Add Customer</h4>
+            </div>
+            <form name="addProductForm" novalidate>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Product Name <span class="req">*</span> </label>
+                                <input class="form-control" type="text" placeholder="Name"
+                                 name="pname" ng-model="ng_pname" pattern="^[a-z A-Z]*$" required>
+                            </div>
+                            <div ng-show="addProductForm.pname.$dirty && addProductForm.pname.$invalid">
+                                <small class="text-danger" ng-show="addProductForm.pname.$invalid">
+                                    ( Only characters are allowed )
+                                </small>
+                                <br>
+                                <small class="text-danger" ng-show="addProductForm.pname.$error.required">
+                                    Required
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Category <span class="req">*</span> </label>
+                                <select id="" class="form-control " style="width: 100%;"
+                                name="pcategory" ng-model="ng_pcategory" required>
+                                    <option value="" selected>Select Category</option>
+                                    <option value="1">Category 1</option>
+                                    <option value="2">Category 2</option>
+                                    <option value="3">Category 3</option>
+                                    <option value="4">Category 4</option>
+                                    <option value="5">Category 5</option>
+                                </select>
+                            </div>
+                            <div class="form-group" ng-show="addProductForm.pcategory.$dirty && ng_pcategory == 0">
+                                <small class="text-danger"> Please Select Category! </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Sub-Category <span class="req">*</span> </label>
+                                <select id="" class="form-control" 
+                                name="psubcategory" ng-model="ng_psubcategory" required>
+                                    <option value="" selected>Select Sub-Category</option>
+                                    <option value="1">Category 1</option>
+                                    <option value="2">Category 2</option>
+                                    <option value="3">Category 3</option>
+                                    <option value="4">Category 4</option>
+                                    <option value="5">Category 5</option>
+                                </select>
+                            </div>
+                            <div class="form-group" ng-show="addProductForm.psubcategory.$dirty && ng_psubcategory == 0">
+                                <small class="text-danger"> Please Select Sub-Category! </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">CNIC <small>(optional)</small> </label>
+                                <input class="form-control"  type="text" placeholder="xxxxx-xxxxxxx-x" 
+                                 name="pcnic" ng-model="ng_pcnic" minlength="13" maxlength="13" pattern="^[0-9]*$">
+                            </div>
+                            <div class="form-group" ng-show="addProductForm.pcnic.$dirty && addProductForm.pcnic.$invalid">
+                                <small class="text-danger" ng-show="addProductForm.pcnic.$invalid">
+                                    ( Only number allowed, no character accepted )
+                                </small>
+                                <!-- <br>
+                                <small class="text-danger" ng-show="addProductForm.pcnic.$error.required">
+                                    Required CNIC without dashes (xxxxxxxxxxxxx)
+                                </small> -->
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Unit of Measurement <span class="req">*</span> </label>
+                                <select name="" id="" class="form-control" 
+                                name="pmunit" ng-model="ng_pmunit" required>
+                                    <option value="" selected>Select Unit</option>
+                                    <option value="1">Unit 1</option>
+                                    <option value="2">Unit 2</option>
+                                    <option value="3">Unit 3</option>
+                                    <option value="4">Unit 4</option>
+                                    <option value="5">Unit 5</option>
+                                </select>
+                            </div>
+                            <div class="form-group" ng-show="addProductForm.pmunit.$dirty && ng_pmunit == 0">
+                                <small class="text-danger"> Please Select Unit of Measurement! </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Sale Price <span class="req">*</span> </label>
+                                <input class="form-control" type="text" placeholder="price" 
+                                name="pprice" ng-model="ng_pprice" pattern="^[0-9]*$" required maxlength="10">
+                            </div>
+                            <div class="form-group" ng-show="addProductForm.pprice.$dirty && addProductForm.pprice.$invalid">
+                                <small class="text-danger" ng-show="addProductForm.pprice.$invalid">
+                                    ( Only number allowed, no character accepted )
+                                </small>
+                                <br>
+                                <small class="text-danger" ng-show="addProductForm.pprice.$error.required">
+                                    Required
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Discount <span class="req">*</span> </label>
+                                <input class="form-control" type="number" placeholder="Discount" 
+                                name="pdiscount" ng-model="ng_pdiscount" required maxlength="2">
+                            </div>
+                            <div class="form-group" ng-show="addProductForm.pdiscount.$dirty && addProductForm.pdiscount.$invalid">
+                                <small class="text-danger" ng-show="addProductForm.pdiscount.$invalid">
+                                    ( Only number allowed, no character accepted )
+                                </small>
+                                <br>
+                                <small class="text-danger" ng-show="addProductForm.pdiscount.$error.required">
+                                    Required
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Unit per Quantity <span class="req">*</span> </label>
+                                <select id="" class="form-control" 
+                                name="pqunit" ng-model="ng_pqunit" required>
+                                    <option value="" selected>Select Unit</option>
+                                    <option value="1">Unit 1</option>
+                                    <option value="2">Unit 2</option>
+                                    <option value="3">Unit 3</option>
+                                    <option value="4">Unit 4</option>
+                                    <option value="5">Unit 5</option>
+                                </select>
+                            </div>
+                            <div class="form-group" ng-show="addProductForm.pqunit.$dirty && ng_pqunit == 0">
+                                <small class="text-danger"> Please Select Unit per Quantity! </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="">Description <small>(optional)</small> </label>
+                            <textarea class="form-control" id="" rows="5" placeholder="Description" 
+                            name="pdesc" ng-model="ng_pdesc">
+
+                            </textarea>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="id_editStaffImg">Upload Image <small>(optional)</small> </label>
+                            <div style="width: 100%; height:auto;"  action="/file-upload" class="dropzone" id="dropzone"></div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 mt-4">
+                            <div class="col-lg-3 col-md-3 col-sm-3 mx-auto">
+                                <button class="btn btn-block btn-success btn-md" 
+                                ng-disabled="addProductForm.$invalid || ng_pcategory===0 || ng_psubcategory===0 || ng_pmunit===0 || ng_pqunit===0" 
+                                ng-click="createCustomer()">Create Custoemr</button> 
+                            </div>   
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <div class="card-footer text-right">
+                <button class="btn btn-xs btn-dark" ng-click="hideaddCustomer()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4" id="customerListingSection">
+        <div class="card shadow">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="m-0">Customer Listing</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-sm btn-dark" ng-click="showCreateCustomerSection()">
+                            <i class="far fa-plus-square"></i> Add Customer
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body table-responsive col-md-12">
+                <table class="table table-sm table-bordered table-hover" 
+                 datatable="ng" dt-option="vm.dtOptions">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Sub Category</th>
+                            <th>Sale Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in products">
+                            <td>{{ $index+1 }}</td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>{{ product.sub_category }}</td>
+                            <td>{{ product.sale_price }}</td>
+                            <td>
+                                <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-xs btn-success"><i class="fa fa-edit"></i></button>
+                                <button class="btn btn-xs btn-primary"><i class="fa fa-eye"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script> 
+    $('.select2').select2();
+ 
+</script>
+    
+</script>

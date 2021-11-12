@@ -1,0 +1,201 @@
+<style>
+    .req{
+        color: red;
+        font-size: 14px;
+    }
+    .card{
+        border: none;
+        border-top: 3px solid #32a852 ;
+    }
+    .modal-header{
+        border: none;
+        border-top: 3px solid #32a852 ;
+        border-bottom: 1px solid lightgray;
+    }
+    h4{
+        color: #32a852;
+    }
+</style>
+<section class="content ">
+    <div class="container-fluid py-4" id="createsubCategorySection">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4 class="m-0">Add Sub-Category</h4>
+            </div>
+            <form name="addsubCategoryForm" novalidate>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Category <span class="req">*</span> </label>
+                                <select id="" class="form-control " style="width: 100%;"
+                                name="category" ng-model="ng_category" required>
+                                    <option value="" >Select Category</option>
+                                    <option value="1">Category 1</option>
+                                    <option value="2">Category 2</option>
+                                    <option value="3">Category 3</option>
+                                    <option value="4">Category 4</option>
+                                    <option value="5">Category 5</option>
+                                </select>
+                            </div>
+                            <div class="form-group" ng-show="addsubCategoryForm.category.$dirty && ng_category == 0">
+                                <small class="text-danger"> Please Select Category! </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Sub-Category Name <span class="req">*</span> </label>
+                                <input class="form-control" type="text" placeholder="Name"
+                                 name="subcatname" ng-model="ng_subcatname" pattern="^[a-z A-Z]*$" required>
+                            </div>
+                            <div class="form-group" ng-show="addsubCategoryForm.subcatname.$dirty && addsubCategoryForm.subcatname.$invalid">
+                                <small class="text-danger" ng-show="addsubCategoryForm.subcatname.$invalid">
+                                    ( Only characters are allowed )
+                                </small>
+                                <br>
+                                <small class="text-danger" ng-show="addsubCategoryForm.subcatname.$error.required">
+                                    Required
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <label for="" class="text-white">Sub-Category Name</label>
+                            <button class="btn btn-block btn-success btn-md" 
+                            ng-disabled="addsubCategoryForm.$invalid || ng_category===0 || ng_category === ''" 
+                            ng-click="createsubCategory()">Create Sub-Category</button> 
+                        </div>   
+                    </div>    
+                </div>
+            </form>
+            <div class="card-footer text-right">
+                <button class="btn btn-xs btn-dark" ng-click="hideaddsubCategory()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4" id="subcategoryListingSection">
+        <div class="card shadow">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="m-0">Sub-Category Listing</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-sm btn-dark" ng-click="showCreatesubCategorySection()">
+                            <i class="far fa-plus-square"></i> Add Sub-Category
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body table-responsive col-md-12">
+                <table class="table table-sm table-bordered table-hover" 
+                 datatable="ng" dt-option="vm.dtOptions">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Category</th>
+                            <th>Sub-Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="sub_category in sub_categories">
+                            <td>{{ $index+1 }}</td>
+                            <td>{{ sub_category.category }}</td>
+                            <td>{{ sub_category.label }}</td>
+                            <td>
+                                <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#modalsubCategoryEdit">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="btn btn-xs btn-danger" ng-click="delsubCategory()">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sub-Category Edit Modal Starts  -->
+<div class="modal fade" id="modalsubCategoryEdit">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Sub-Category</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid py-2">
+                <div>
+                    <form name="editsubCategoryForm" novalidate>
+                        <div>
+                            <div class="row">
+        
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Category <span class="req">*</span> </label>
+                                        <select id="" class="form-control " style="width: 100%;"
+                                        name="category" ng-model="ng_category" required>
+                                            <option value="" >Select Category</option>
+                                            <option value="1">Category 1</option>
+                                            <option value="2">Category 2</option>
+                                            <option value="3">Category 3</option>
+                                            <option value="4">Category 4</option>
+                                            <option value="5">Category 5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" ng-show="editsubCategoryForm.category.$dirty && ng_category == 0">
+                                        <small class="text-danger"> Please Select Category! </small>
+                                    </div>
+                                </div>
+        
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Sub-Category Name <span class="req">*</span> </label>
+                                        <input class="form-control" type="text" placeholder="Name"
+                                         name="editsubcatname" ng-model="ng_editsubcatname" pattern="^[a-z A-Z]*$" required>
+                                    </div>
+                                    <div class="form-group" ng-show="editsubCategoryForm.editsubcatname.$dirty && editsubCategoryForm.editsubcatname.$invalid">
+                                        <small class="text-danger" ng-show="editsubCategoryForm.editsubcatname.$invalid">
+                                            ( Only characters are allowed )
+                                        </small>
+                                        <br>
+                                        <small class="text-danger" ng-show="editsubCategoryForm.editsubcatname.$error.required">
+                                            Required
+                                        </small>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <button class="btn btn-block btn-success btn-md" 
+                                    ng-disabled="editsubCategoryForm.$invalid || ng_category===0 || ng_category === ''" 
+                                    ng-click="updatesubCategory()">Update Sub-Category</button> 
+                                </div>   
+                            </div>    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+<!-- Sub-Category Edit Modal Ends  -->
+
+<script> 
+    $('.select2').select2();
+ 
+</script>
+    
+</script>

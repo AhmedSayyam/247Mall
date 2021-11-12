@@ -1,0 +1,161 @@
+<style>
+    .req{
+        color: red;
+        font-size: 14px;
+    }
+    .card{
+        border: none;
+        border-top: 3px solid #32a852 ;
+    }
+    .modal-header{
+        border: none;
+        border-top: 3px solid #32a852 ;
+        border-bottom: 1px solid lightgray;
+    }
+    h4{
+        color: #32a852;
+    }
+</style>
+<section class="content ">
+    <div class="container-fluid py-4" id="createCategorySection">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4 class="m-0">Add Category</h4>
+            </div>
+            <form name="addCategoryForm" novalidate>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Category Name <span class="req">*</span> </label>
+                                <input class="form-control" type="text" placeholder="Name"
+                                 name="catname" ng-model="ng_catname" pattern="^[a-z A-Z]*$" required>
+                            </div>
+                            <div class="form-group" ng-show="addCategoryForm.catname.$dirty && addCategoryForm.catname.$invalid">
+                                <small class="text-danger" ng-show="addCategoryForm.catname.$invalid">
+                                    ( Only characters are allowed )
+                                </small>
+                                <br>
+                                <small class="text-danger" ng-show="addCategoryForm.catname.$error.required">
+                                    Required
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <label for="" class="text-white">Category Name</label>
+                            <button class="btn btn-block btn-success btn-md" 
+                            ng-disabled="addCategoryForm.$invalid" 
+                            ng-click="createCategory()">Create Category</button> 
+                        </div>   
+                    </div>    
+                </div>
+            </form>
+            <div class="card-footer text-right">
+                <button class="btn btn-xs btn-dark" ng-click="hideaddCategory()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4" id="categoryListingSection">
+        <div class="card shadow">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="m-0">Category Listing</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-sm btn-dark" ng-click="showCreateCategorySection()">
+                            <i class="far fa-plus-square"></i> Add Category
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body table-responsive col-md-12">
+                <table class="table table-sm table-bordered table-hover" 
+                 datatable="ng" dt-option="vm.dtOptions">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="category in categories">
+                            <td>{{ $index+1 }}</td>
+                            <td>{{ category.label }}</td>
+                            <td>
+                                <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#modalCategoryEdit">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="btn btn-xs btn-danger" ng-click="delCategory()">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Category Edit Modal Starts  -->
+<div class="modal fade" id="modalCategoryEdit">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Category</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid py-2">
+                <div>
+                    <form name="editCategoryForm" novalidate>
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Category Name <span class="req">*</span> </label>
+                                        <input class="form-control" type="text" placeholder="Name"
+                                         name="editcatname" ng-model="ng_editcatname" pattern="^[a-z A-Z]*$" required>
+                                    </div>
+                                    <div class="form-group" ng-show="editCategoryForm.editcatname.$dirty && editCategoryForm.editcatname.$invalid">
+                                        <small class="text-danger" ng-show="editCategoryForm.editcatname.$invalid">
+                                            ( Only characters are allowed )
+                                        </small>
+                                        <br>
+                                        <small class="text-danger" ng-show="editCategoryForm.editcatname.$error.required">
+                                            Required
+                                        </small>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <button class="btn btn-block btn-success btn-md" 
+                                    ng-disabled="editCategoryForm.$invalid" 
+                                    ng-click="updateCategory()">Update Category</button> 
+                                </div>   
+                            </div>    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+<!-- Category Edit Modal Ends  -->
+
+<script> 
+    $('.select2').select2();
+ 
+</script>
+    
+</script>
