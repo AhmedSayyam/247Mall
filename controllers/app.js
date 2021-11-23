@@ -1,4 +1,5 @@
 var app = angular.module("myApp", ['ngRoute', 'datatables']);
+// 'pascalprecht.translate'
 // var app = angular.module("myApp", ['ngRoute']);
 app.config(function($routeProvider) {
     $routeProvider
@@ -28,3 +29,18 @@ app.config(function($routeProvider) {
 
 
 });
+
+// app.run(['$rootScope', function($rootScope) {
+//     $rootScope.lang = 'en';
+// }])
+
+
+// app.config(["$translateProvider", function($translateProvider){
+
+//     $translateProvider.useStaticFilesLoader({
+//         prefix: 'locales/locale-',
+//         suffix: '.json'
+//     })
+//     .useSanitizeValueStrategy('sanitizeParameters')    
+//     .preferredLanguage('en');
+// }]);

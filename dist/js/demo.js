@@ -522,7 +522,7 @@
     $main_header.addClass(color)
   })
 
-  var active_navbar_color = null
+  var active_navbar_color = null;
   $('.main-header')[0].classList.forEach(function (className) {
     if (navbar_all_colors.indexOf(className) > -1 && active_navbar_color === null) {
       active_navbar_color = className.replace('navbar-', 'bg-')
@@ -581,7 +581,7 @@
     $(this).parent().removeClass().addClass('custom-select mb-3 text-light border-0').addClass(color)
 
     $sidebar_light_variants.find('option').prop('selected', false)
-    $sidebar.addClass(sidebar_class)
+    $sidebar.addClass(sidebar_class);
     $('.sidebar').removeClass('os-theme-dark').addClass('os-theme-light')
   }, true)
   $container.append($sidebar_dark_variants)

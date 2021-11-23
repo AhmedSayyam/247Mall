@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}" ng-app="myApp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +42,7 @@
    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
 </head>
-<body class="hold-transition sidebar-mini layout-fixed" ng-app="myApp">
+<body class="hold-transition sidebar-mini layout-fixed" ng-controller="main_cont">
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -198,11 +198,11 @@
             </ul>
         </div>
       </li>
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li> -->
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -303,6 +303,7 @@
 </div>
 <!-- ./wrapper -->
 
+
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -350,8 +351,16 @@
  <!-- Angular 1.8.0 -->
  <script src="plugins/angular-1.8.0/angular.min.js"></script>
  <script src="plugins/angular-1.8.0/angular-route.min.js"></script>
- <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> -->
+
+ <!-- <script data-require="angular-translate@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-translate/bower-angular-translate/2.5.0/angular-translate.js"></script> -->
+ 
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.19.0/angular-translate.min.js" integrity="sha512-a/Saqh9wa0rRm8gEgTqGYgoIh1Jki7htgcbLo6R9R990l8TqdIrpx9yWuTLJ+lMsWpQeLbrkbKvkTizrOuCI9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.19.0/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js" integrity="sha512-L5AdgFYPjTX6NzrSbKLj5ZpT0bO6+Dhuv+Drw8AaY9oLKYlqElsSNtSR77o4ivyWiUDUW++nYTpt4wzG5U3GJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ -->
+
+ <script src="//cdnjs.cloudflare.com/ajax/libs/angular-translate/2.18.1/angular-translate.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/angular-translate/2.18.1/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+
  <!-- Angular Datatables -->
  <!-- DataTables -->
  <script src="plugins/datatables-angularjs/datatables/jquery.dataTables.min.js"></script>

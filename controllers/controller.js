@@ -17,12 +17,19 @@ function notify(msg, sign){
 }
 
 
+app.controller('main_cont', function($scope){
+    console.log("Main Controller");
+});
 
 
-
-
-app.controller('dashboard_ctrl', function($scope){
+app.controller('dashboard_ctrl', function($scope, $rootScope){
     console.log("Dashboard Controller");
+    // $translate
+    // $scope.changeLanguage = function (key) {
+    //     console.log("KEY: ",key);
+    //     $rootScope.lang = key;
+    //     $translate.use(key);
+    // };
 });
 
 
