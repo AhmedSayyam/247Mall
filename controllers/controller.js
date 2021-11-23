@@ -297,3 +297,97 @@ app.controller('customers_ctrl', function($scope){
         $("#createCustomerSection").slideUp();
     }
 });
+
+app.controller('orders_ctrl', function($scope){
+    console.log("Orders Controller");
+    $("#createOrderSection").hide();
+    $scope.orders = [
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'pending'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'complete'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'failed'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'inprocess'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'pending'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'complete'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'failed'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'inprocess'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'pending'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'complete'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'failed'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'inprocess'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'pending'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'complete'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'failed'  },
+        { order_no: '1324', customer: 'Ahmed Sayyam', total_items: 6, amount: 670, status: 'inprocess'  },
+        
+    ];
+
+    $scope.showCreateOrderSection = function(){
+        $("#createOrderSection").slideDown();
+    }
+
+    $scope.createOrder = function(){
+        notify('Order Added Successfully', 'success');
+        $("#createOrderSection").slideUp();
+        $("#orderListingSection").fadeIn();
+    }
+
+    $scope.hideaddOrder = function(){
+        $("#createOrderSection").slideUp();
+    }
+
+    $scope.updateOrder = function(){
+        notify('Order Updated Successfully', 'success');
+    }
+
+    $scope.delOrder = function(){
+        notify('Order Deleted Successfully', 'success');
+    }
+});
+
+app.controller('schedule_orders_ctrl', function($scope){
+    console.log("Orders Controller");
+    $scope.sub_categories = [
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+        { category: 'category-1', label: 'sub-category-1' },
+    ];
+
+    $scope.updateOrder = function(){
+        notify('Sub-Category Updated Successfully', 'success');
+        console.log("Order Updated");
+    }
+
+    $scope.delOrder = function(){
+        notify('Order Deleted Successfully', 'success');
+        console.log("Order Deleted");
+    }
+});
+
+app.controller('dispute_ctrl', function($scope){
+    console.log("Dispute Controller");
+});
+
+
+app.controller('support_ctrl', function($scope){
+    console.log("Support Controller");
+});

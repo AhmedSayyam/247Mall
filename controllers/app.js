@@ -7,6 +7,10 @@ app.config(function($routeProvider) {
             templateUrl: "views/dashboard.html",
             controller: "dashboard_ctrl"
         })
+        .when("/dashboard", {
+            templateUrl: "views/dashboard.html",
+            controller: "dashboard_ctrl"
+        })
         .when("/products", {
             templateUrl: "views/product.html",
             controller: "product_ctrl"
@@ -22,6 +26,22 @@ app.config(function($routeProvider) {
         .when("/customers", {
             templateUrl: "views/customers.html",
             controller: "customers_ctrl"
+        }).
+        when("/orders", {
+            templateUrl: "views/orders.html",
+            controller: "orders_ctrl"
+        }).
+        when("/schedule_orders", {
+            templateUrl: "views/schedule_orders.html",
+            controller: "schedule_orders_ctrl"
+        }).
+        when("/dispute", {
+            templateUrl: "views/dispute.html",
+            controller: "dispute_ctrl"
+        }).
+        when("/support", {
+            templateUrl: "views/support.html",
+            controller: "support_ctrl"
         }).
         otherwise({
             templateUrl: "views/404.html"
