@@ -1,0 +1,198 @@
+<style>
+    .req{
+        color: red;
+        font-size: 14px;
+    }
+    .card{
+        border: none;
+        border-top: 3px solid #32a852 ;
+    }
+    .modal-header{
+        border: none;
+        border-top: 3px solid #32a852 ;
+        border-bottom: 1px solid lightgray;
+    }
+   
+</style>
+<section class="content ">
+    <div class="container-fluid py-4" id="createshortKeySection">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4 class="m-0">Add Short key</h4>
+            </div>
+            <form name="addshortKeyForm" novalidate>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Label <span class="req">*</span> </label>
+                                <input class="form-control" type="text" placeholder="Short Key"
+                                 name="shortlabel" ng-model="ng_shortlabel" pattern="^[a-z A-Z]*$" required>
+                            </div>
+                            <div class="form-group" ng-show="addshortKeyForm.shortlabel.$dirty && addshortKeyForm.shortlabel.$invalid">
+                                <small class="text-danger" ng-show="addshortKeyForm.shortlabel.$invalid">
+                                    ( Only characters are allowed )
+                                </small>
+                                <br>
+                                <small class="text-danger" ng-show="addshortKeyForm.shortlabel.$error.required">
+                                    Required
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label for="">Value <span class="req">*</span> </label>
+                                <input class="form-control" type="text" placeholder="Name"
+                                 name="shortvalue" ng-model="ng_shortvalue" pattern="^[a-z A-Z 0-9 +_@!]*$" required>
+                            </div>
+                            <div class="form-group" ng-show="addshortKeyForm.shortvalue.$dirty && addshortKeyForm.shortvalue.$invalid">
+                                <small class="text-danger" ng-show="addshortKeyForm.shortvalue.$invalid">
+                                    ( Only characters and digits are allowed ) <br />
+                                    (Only following special characters are allowed + @ ! _ )
+                                </small>
+                                <br>
+                                <small class="text-danger" ng-show="addshortKeyForm.shortvalue.$error.required">
+                                    Required
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <label for="" class="text-white">Short Key</label>
+                            <button class="btn btn-block btn-success btn-md" 
+                            ng-disabled="addshortKeyForm.$invalid" 
+                            ng-click="createshortKey()">Create Short Key</button> 
+                        </div>   
+                    </div>    
+                </div>
+            </form>
+            <div class="card-footer text-right">
+                <button class="btn btn-xs btn-dark" ng-click="hideaddshortKey()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4" id="shortKeyListingSection">
+        <div class="card shadow">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="m-0">Short Course Listing</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-sm btn-dark" ng-click="showCreateshortKeySection()">
+                            <i class="far fa-plus-square"></i> Add Short Key
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body table-responsive col-md-12">
+                <table class="table table-sm table-bordered table-hover" 
+                 datatable="ng" dt-option="vm.dtOptions">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Key</th>
+                            <th>Value</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="sk in short_keys">
+                            <td>{{ $index+1 }}</td>
+                            <td>{{ sk.label }}</td>
+                            <td>{{ sk.value }}</td>
+                            <td>
+                                <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#modalshortKeyEdit">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="btn btn-xs btn-danger" ng-click="delshortKey()">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Short Key Edit Modal Starts  -->
+<div class="modal fade" id="modalshortKeyEdit">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Short Key</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid py-2">
+                <div>
+                    <form name="editshortKeyForm" novalidate>
+                        <div>
+                            <div class="row">
+        
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Label <span class="req">*</span> </label>
+                                        <input class="form-control" type="text" placeholder="Short Key"
+                                         name="editshortlabel" ng-model="ng_editshortlabel" pattern="^[a-z A-Z]*$" required>
+                                    </div>
+                                    <div class="form-group" ng-show="editshortKeyForm.editshortlabel.$dirty && editshortKeyForm.editshortlabel.$invalid">
+                                        <small class="text-danger" ng-show="editshortKeyForm.editshortlabel.$invalid">
+                                            ( Only characters are allowed )
+                                        </small>
+                                        <br>
+                                        <small class="text-danger" ng-show="editshortKeyForm.editshortlabel.$error.required">
+                                            Required
+                                        </small>
+                                    </div>
+                                </div>
+        
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Value <span class="req">*</span> </label>
+                                        <input class="form-control" type="text" placeholder="Name"
+                                         name="editshortvalue" ng-model="ng_editshortvalue" pattern="^[a-z A-Z 0-9 +_@!]*$" required>
+                                    </div>
+                                    <div class="form-group" ng-show="editshortKeyForm.editshortvalue.$dirty && editshortKeyForm.editshortvalue.$invalid">
+                                        <small class="text-danger" ng-show="editshortKeyForm.editshortvalue.$invalid">
+                                            ( Only characters and digits are allowed )
+                                        </small>
+                                        <br>
+                                        <small class="text-danger" ng-show="editshortKeyForm.editshortvalue.$error.required">
+                                            Required
+                                        </small>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <button class="btn btn-block btn-success btn-md" 
+                                    ng-disabled="editshortKeyForm.$invalid" 
+                                    ng-click="updateshortKey()">Update Short Key</button> 
+                                </div>   
+                            </div>    
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+<!-- Short Key Edit Modal Ends  -->
+
+<script> 
+    $('.select2').select2();
+ 
+</script>
+    
+</script>

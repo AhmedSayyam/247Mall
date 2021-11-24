@@ -391,3 +391,59 @@ app.controller('dispute_ctrl', function($scope){
 app.controller('support_ctrl', function($scope){
     console.log("Support Controller");
 });
+
+app.controller('manners_ctrl', function($scope){
+    console.log("Manners Controller");
+});
+
+app.controller('short_course_ctrl', function($scope){
+    console.log("Short Course Controller");
+    $("#createshortKeySection").hide();
+    $scope.short_keys = [
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+        {  label: 'print', value: 'Ctrl+p' },
+    ];
+
+    $scope.showCreateshortKeySection = function(){
+        $("#createshortKeySection").slideDown();
+    }
+
+    $scope.createshortKey = function(){
+        notify('Short Key Added Successfully', 'success');
+        $("#createshortKeySection").slideUp();
+        $("#shortKeyListingSection").fadeIn();
+    }
+
+    $scope.hideaddshortKey = function(){
+        $("#createshortKeySection").slideUp();
+    }
+
+    $scope.updateshortKey = function(){
+        notify('Short Key Updated Successfully', 'success');
+    }
+
+    $scope.delshortKey = function(){
+        notify('Short Key Deleted Successfully', 'success');
+    }
+});

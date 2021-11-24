@@ -35,6 +35,14 @@ app.config(function($routeProvider) {
             templateUrl: "views/schedule_orders.html",
             controller: "schedule_orders_ctrl"
         }).
+        when("/manners", {
+            templateUrl: "views/manners.html",
+            controller: "manners_ctrl"
+        }).
+        when("/short_course", {
+            templateUrl: "views/short_course.html",
+            controller: "short_course_ctrl"
+        }).
         when("/dispute", {
             templateUrl: "views/dispute.html",
             controller: "dispute_ctrl"
